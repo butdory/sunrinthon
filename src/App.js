@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+
+import Main from './components/page/Main';
+import Notice from './components/page/Notice';
+import Update from './components/page/Update';
+import Event from './components/page/Event';
+import WorldView from './components/page/WorldView';
+import Class from './components/page/Class';
+import Contents from './components/page/Contents';
+import GameGuide from './components/page/GameGuide';
+import ItemDictionary from './components/page/ItemDictionary';
+
+import { BrowserRouter as Router, Route, Routes  } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>      
+    <Router>
+      <Routes>
+        <Route exact path='/' element={ <Main /> }/>
+        <Route exact path='/Notice' element={ <Notice /> }/>
+        <Route exact path='/Update' element={ <Update /> }/>
+        <Route exact path='/Event' element={ <Event /> }/>
+        <Route exact path='/WorldView' element={ <WorldView /> }/>
+        <Route exact path='/Class' element={ <Class /> }/>
+        <Route exact path='/Contents' element={ <Contents /> }/>
+        <Route exact path='/GameGuide' element={ <GameGuide /> }/>
+        <Route exact path='/ItemDictionary' element={ <ItemDictionary /> }/>
+      </Routes>
+    </Router>
     </div>
   );
 }
