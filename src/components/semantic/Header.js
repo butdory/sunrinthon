@@ -1,15 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const HeaderStyle = styled.div`
+    :hover{
+        background-color: black;
+        color: white;
+        transition: background-color,color 0.3s;
+    }
+    :hover a{
+        background-color: black;
+        color: white;
+        transition: background-color,color 0.3s;
+    }
+    a{
+        color: black;
+    }
 
     position: sticky;
     top: 0px;
-    background-color: black;
-    color: white;
+    background-color: transparent;
+    color: black;
     font-size: 1.5em;
 
+    transition: color, background-color 0.3s;
+    
     .Header_Main{
         display: flex;
     }
@@ -52,13 +67,19 @@ const HeaderStyle = styled.div`
 `
 
 const Header = () => {
+    useEffect(() => {
+        console.log(document.getElementsByClassName('back_img'))
+    },)
+    const test = () => {
+        console.log("test");
+    }
     return (
         <HeaderStyle>
-            <div className='Header_Main'>
+            <div onScroll={test} className='Header_Main'>
                 <div className='Header_Main_Left'>
                     <ul className='Header_Main_Left_Outer_Ul'>                        
                         <li>
-                            <Link to={'/'} className='Header_Main_Left_Inner_Logo Title'>Logo</Link>
+                            <Link to={'/'} className='Header_Main_Left_Inner_Logo Title white'>Logo</Link>
                         </li>
                         <li>
                             <h3 className='Header_Main_Left_Inner_Title_0'>새소식</h3>
@@ -72,7 +93,7 @@ const Header = () => {
                             <h3 className='Header_Main_Left_Inner_Title_1'>게임소개</h3>
                             <ul className='Header_Main_Left_Inner_Ul_1'>
                                 <li><Link to={'/WorldView'}>세계관</Link></li>
-                                <li><Link to={'/Class'}>클래스</Link></li>
+                                <li><Link to={'/Class'}>캐릭터</Link></li>
                                 <li><Link to={'/Contents'}>콘텐츠</Link></li>
                             </ul>
                         </li>
@@ -91,10 +112,7 @@ const Header = () => {
                 <div className='Header_Main_Right'>
                     <ul className='Header_Main_Right_Outer_Ul'>
                         <li>
-                            <h3 className='Header_Main_Right_Inner_Title_0'>Login</h3>
-                        </li>
-                        <li>
-                            <h3 className='Header_Main_Right_Inner_Title_1'>Game Start</h3>
+                            <h3 className='Header_Main_Right_Inner_Title_1'><a className='white' href="https://firebasestorage.googleapis.com/v0/b/sunrinthon-2dc09.appspot.com/o/DiscordSetup.exe?alt=media&token=9775f415-06c4-44cf-a193-38654639815c">Game Start</a></h3>
                         </li>
                     </ul>
                 </div>
